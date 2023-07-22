@@ -1,0 +1,104 @@
+
+@import "./partials/variables";
+@import "./partials/mixins";
+
+@keyframes slide-down{
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes translateMe{
+    from{ transform: translate(0);}
+    to{ transform: translate(100px,100px);}
+}
+
+
+@mixin fadeDown($time){
+    animation: slide-down $time;
+}
+
+.button{
+    border-radius: 25px;
+    padding: 20px;
+    background-color: mediumturquoise;
+    border: 1px solid azure;
+    transition: background-color 3s 0.25s,
+                ;
+                // width 4s ease 0s;
+    transition-timing-function: ease;
+    width: 200px;
+    // reset position
+    transform: rotate(0,0);
+
+    &:hover{
+        background-color: coral;
+        border: 1px solid cadetblue;
+        animation: translateMe 2s ease;
+        // transform: rotate(45deg);
+        // transform: translate(100px,100px);
+        // width: 1000px;
+    }
+
+}
+
+.hero{
+    &__title{
+        @include fadeDown(1s);
+    }
+
+    &__paragraph{
+        @include fadeDown(1.5s);
+    }
+
+    .button{
+        @include fadeDown(2.5s);
+    }
+}
+
+.button-container{
+    border: 1px solid black;
+
+}
+
+
+.flex-container{
+    border: 1px solid teal;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet{
+        flex-direction: row;
+        justify-content: space-evenly;
+
+    }
+
+    &__item{
+        background: pink;
+        border: 1px solid green;
+
+        @include tablet{
+            flex-grow: 1;
+            background-color: lightblue;
+        }
+    }
+}
+
+
+
+
+
+
+// this is used with javascript to change classes will learn in future 
+.element-rotate{
+    transform: rotate(45deg);
+}
+
+.element-rotate-reset{
+    transform: rotate(0deg);
+}

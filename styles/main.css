@@ -1,0 +1,77 @@
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes translateMe {
+  from {
+    transform: translate(0);
+  }
+  to {
+    transform: translate(100px, 100px);
+  }
+}
+.button {
+  border-radius: 25px;
+  padding: 20px;
+  background-color: mediumturquoise;
+  border: 1px solid azure;
+  transition: background-color 3s 0.25s;
+  transition-timing-function: ease;
+  width: 200px;
+  transform: rotate(0, 0);
+}
+.button:hover {
+  background-color: coral;
+  border: 1px solid cadetblue;
+  animation: translateMe 2s ease;
+}
+
+.hero__title {
+  animation: slide-down 1s;
+}
+.hero__paragraph {
+  animation: slide-down 1.5s;
+}
+.hero .button {
+  animation: slide-down 2.5s;
+}
+
+.button-container {
+  border: 1px solid black;
+}
+
+.flex-container {
+  border: 1px solid teal;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .flex-container {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+.flex-container__item {
+  background: pink;
+  border: 1px solid green;
+}
+@media (min-width: 768px) {
+  .flex-container__item {
+    flex-grow: 1;
+    background-color: lightblue;
+  }
+}
+
+.element-rotate {
+  transform: rotate(45deg);
+}
+
+.element-rotate-reset {
+  transform: rotate(0deg);
+}/*# sourceMappingURL=main.css.map */
